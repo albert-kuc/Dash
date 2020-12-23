@@ -20,7 +20,7 @@ import dash_core_components as dcc
 from dash.dependencies import Output, Input
 import os
 
-path = '_dataset/'
+path = '_datasets/'
 log_csv_files = [file for file in os.listdir(path) if file.endswith('.csv')]
 print(log_csv_files)
 #
@@ -30,7 +30,7 @@ print(log_csv_files)
 # Data exploration with Pandas
 # ----------------------------
 
-# df = pd.read_csv('_dataset/record_df_data_only_01.csv', sep=';')
+# df = pd.read_csv('_datasets/record_df_data_only_01.csv', sep=';')
 #
 # print(df.head())
 # print(df.tail())
@@ -71,7 +71,7 @@ app.layout = html.Div([
 def interactive_graphing(value_file):
     print(value_file)
     try:
-        df = pd.read_csv(os.path.join('_dataset/', value_file), sep=';')
+        df = pd.read_csv(os.path.join('_datasets/', value_file), sep=';')
     except EmptyDataError:
         # print('empty')
         df = pd.DataFrame(columns=['[Position]', '[Force]'])
